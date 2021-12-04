@@ -40,11 +40,41 @@ namespace Contacts_System.Controllers
             return View();
         }
 
+        public ActionResult Update(int id)
+        {
+            var Profile = db.Profiles.SingleOrDefault(p => p.ID == id);
+
+            var Model = new Profile
+            {
+                ID = Profile.ID,
+                firstName = Profile.firstName,
+                lastName = Profile.lastName,
+                Address = Profile.Address,
+                Email = Profile.Email,
+                Phone = Profile.Phone
+            };
+            return View(Model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Profile Profile)
         {
-            db.Profiles.Add(Profile);
+            if (Profile.ID==0)
+            {
+                db.Profiles.Add(Profile);
+            }
+            else
+            {
+                var Temp_Profile = db.Profiles.SingleOrDefault(p => p.ID == Profile.ID);
+                Temp_Profile.ID = Profile.ID;
+                Temp_Profile.firstName = Profile.firstName;
+                Temp_Profile.lastName = Profile.lastName;
+                Temp_Profile.Address = Profile.Address;
+                Temp_Profile.Phone = Profile.Phone;
+                Temp_Profile.Email = Profile.Email;
+            }
+
             db.SaveChanges();
 
             return RedirectToAction("Index");

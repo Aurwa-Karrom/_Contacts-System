@@ -2,7 +2,7 @@
 
 <h2>
     Contacts
-    @Html.ActionLink("New Contacts", "Create", "Contacts", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("New Contact", "Create", "Contacts", null, new { @class = "btn btn-primary" })
 </h2>
 @(Html.Kendo().Grid<Contacts_System.Models.Profile>
     ()
@@ -14,6 +14,9 @@
         columns.Bound(c => c.Email);
         columns.Bound(c => c.Phone);
         columns.Bound(c => c.Address);
+        columns.Template(t => { }).Title(string.Empty).Width(75)
+        .ClientTemplate(@"<a href='" + Url.Action("Update", "Contacts") + "?id=#=ID#' class='btn btn-info btn-sm'  title='Modify this item' >Update</a>");
+
     })
     .ToolBar(toolbar =>
     {
