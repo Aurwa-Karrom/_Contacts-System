@@ -12,9 +12,11 @@ namespace Contacts_System.Models
         public int ID { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         public string firstName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string lastName { get; set; }
 
         [Required]

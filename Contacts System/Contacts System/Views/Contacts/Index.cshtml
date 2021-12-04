@@ -1,0 +1,42 @@
+﻿@using Kendo.Mvc.UI
+
+<h2>
+    Contacts
+</h2>
+@(Html.Kendo().Grid<Contacts_System.Models.Profile>
+    ()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.firstName);
+        columns.Bound(c => c.lastName);
+        columns.Bound(c => c.Email);
+        columns.Bound(c => c.Phone);
+        columns.Bound(c => c.Address);
+    })
+    .ToolBar(toolbar =>
+    {
+        toolbar.Search();
+    })
+    .ColumnMenu()
+    .Editable()
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable()
+    .Selectable(selectable =>
+    {
+        selectable.Mode(GridSelectionMode.Single);
+        selectable.Type(GridSelectionType.Row);
+    })
+    .Sortable(sortable =>
+    {
+        sortable.SortMode(GridSortMode.SingleColumn);
+    })
+    .Filterable()
+    .Scrollable()
+    .DataSource(dataSource => dataSource
+    .Ajax()
+    .Model(model => model.Id(p => p.ID))
+    .Read(read => read.Action("Show_All", "Contacts"))
+    )
+)
+
