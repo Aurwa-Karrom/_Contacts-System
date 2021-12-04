@@ -2,6 +2,7 @@
 
 <h2>
     Contacts
+    @Html.ActionLink("New Contacts", "Create", "Contacts", null, new { @class = "btn btn-primary" })
 </h2>
 @(Html.Kendo().Grid<Contacts_System.Models.Profile>
     ()

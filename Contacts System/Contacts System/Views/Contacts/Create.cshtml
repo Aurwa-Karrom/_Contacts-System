@@ -1,0 +1,49 @@
+﻿@model Contacts_System.Models.Profile
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Save", "Contacts"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.firstName)
+        @Html.TextBoxFor(m => m.firstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.firstName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.lastName)
+        @Html.TextBoxFor(m => m.lastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.lastName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Phone)
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Phone)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address)
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address)
+    </div>
+
+    @Html.HiddenFor(m => m.ID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Back", "Index", "Contacts", null, new { @class = "btn btn-secondary" })
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

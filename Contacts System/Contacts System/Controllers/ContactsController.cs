@@ -22,7 +22,7 @@ namespace Contacts_System.Controllers
 
         public ActionResult Show_All([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Profile> Profile = db.Proviles;
+            IQueryable<Profile> Profile = db.Profiles;
             DataSourceResult result = Profile.ToDataSourceResult(request, profile => new {
                 ID = profile.ID,
                 firstName = profile.firstName,
@@ -34,6 +34,22 @@ namespace Contacts_System.Controllers
 
             return Json(result);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Profile Profile)
+        {
+            db.Profiles.Add(Profile);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
 
     }
 

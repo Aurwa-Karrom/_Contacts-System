@@ -186,6 +186,10 @@
     <Compile Include="Migrations\202112041021027_CreatControlleAndActionShowAll.Designer.cs">
       <DependentUpon>202112041021027_CreatControlleAndActionShowAll.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112041038384_CreateContacts.cs" />
+    <Compile Include="Migrations\202112041038384_CreateContacts.Designer.cs">
+      <DependentUpon>202112041038384_CreateContacts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -250,6 +254,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -268,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112041021027_CreatControlleAndActionShowAll.resx">
       <DependentUpon>202112041021027_CreatControlleAndActionShowAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112041038384_CreateContacts.resx">
+      <DependentUpon>202112041038384_CreateContacts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
