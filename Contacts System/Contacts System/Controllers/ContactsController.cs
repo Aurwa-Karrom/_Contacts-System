@@ -80,6 +80,13 @@ namespace Contacts_System.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(int id)
+        {
+            var Profile = db.Profiles.SingleOrDefault(p => p.ID == id);
+            db.Profiles.Remove(Profile);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 

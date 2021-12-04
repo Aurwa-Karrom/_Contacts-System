@@ -194,6 +194,10 @@
     <Compile Include="Migrations\202112041053525_UpdateContact.Designer.cs">
       <DependentUpon>202112041053525_UpdateContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112041100140_DeleteContact.cs" />
+    <Compile Include="Migrations\202112041100140_DeleteContact.Designer.cs">
+      <DependentUpon>202112041100140_DeleteContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -284,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112041053525_UpdateContact.resx">
       <DependentUpon>202112041053525_UpdateContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112041100140_DeleteContact.resx">
+      <DependentUpon>202112041100140_DeleteContact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
